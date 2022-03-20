@@ -1,6 +1,6 @@
-import { Service } from "./service.js";
+import Service from "./service.js";
 
-export class Controller {
+class Controller {
     constructor() {
         this.service = new Service()
     }
@@ -8,3 +8,5 @@ export class Controller {
         return this.service.getFileStream(filename)
     }
 }
+
+export default Controller

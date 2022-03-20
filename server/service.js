@@ -10,7 +10,7 @@ const {
     }
 } = config
 
-export class Service {
+class Service {
     createFileStream(filename) {
         fs.createReadStream(filename)
     }
@@ -39,3 +39,5 @@ export class Service {
         }
     }
 }
+
+export default Service

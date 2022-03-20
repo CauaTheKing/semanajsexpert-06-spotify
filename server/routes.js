@@ -1,5 +1,5 @@
 import config from "./config.js"
-import { Controller } from "./controller.js"
+import Controller from "./controller.js"
 import { logger } from "./util.js"
 
 const {
@@ -8,7 +8,7 @@ const {
         homeHTML
     }
 } = config
-const controller = new Controller
+const controller = new Controller()
 
 async function routes(request, response) {
     const { method, url } = request
@@ -32,7 +32,7 @@ async function routes(request, response) {
         //     'Content-Type': 'text/html'
         // })
         
-        console.log(stream)
+        console.log('const stream:', stream)
 
         return stream.pipe(response)
     }
@@ -40,7 +40,7 @@ async function routes(request, response) {
     return response.end('hello')
 }
 
-export function handler(request, response) {
+export async function handler(request, response) {
     return routes(request, response)
     .catch(error => logger.error(`Error: ${error.stack}`))
 }
